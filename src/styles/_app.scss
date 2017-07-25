@@ -1,0 +1,38 @@
+.app{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #000;
+}
+
+.gifts{
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: center;
+  & .gift-card{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    padding: 20px;
+    background-color: #fcfcfc;
+    border-radius: 10px;
+    min-width: 70px;
+  }
+}
+
+.cards{
+  column-count: 4;
+  column-gap: 1em;
+  & .movie-card{
+    break-inside: avoid;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #fcfcfc;
+    border-radius: 10px;
+  }
+}
