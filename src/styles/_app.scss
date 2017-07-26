@@ -1,38 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Fontdiner+Swanky');
+
 .app{
+  font-family: 'Fontdiner Swanky', cursive;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   min-height: 100vh;
-  background-color: #000;
+  background-color: #757780;
 }
 
 .gifts{
+  margin: 30px;
   display: flex;
   align-self: stretch;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   & .gift-card{
+    box-shadow: 0 8px 16px 0 rgba(46, 61, 73, 0.16);
+    position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     margin: 30px;
     padding: 20px;
     background-color: #fcfcfc;
     border-radius: 10px;
-    min-width: 70px;
+    min-width: 100px;
   }
 }
 
 .cards{
   column-count: 4;
   column-gap: 1em;
-  & .movie-card{
-    break-inside: avoid;
+  // & .movie-card{
+  //   break-inside: avoid;
+  //   margin-bottom: 10px;
+  //   display: flex;
+  //   justify-content: center;
+  //   padding: 10px;
+  //   background-color: #fcfcfc;
+  //   border-radius: 10px;
+  // }
+  & .flipping-card{
     margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
+    padding: 6px;
     background-color: #fcfcfc;
     border-radius: 10px;
+    transition: all 1s ease;
+    transform-style: preserve-3d;
   }
+}
+.front{
+  transform: rotateY(180deg);
+}
+.hide{
+  display: none;
+}
+.show{
+  display: block !important;
+}
+.flip{
+  transform: rotateY(-180deg);
+}
+
+.prize-icon{
+  position: absolute;
+  left: -36px;
+}
+
+.prize-text{
+  width: 50px;
+  align-self: flex-end;
+}
+
+.prize-count{
+  top: -79px;
+  color: #a36f86;
+  left: 85px;
+  font-size: 48px;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+  position: absolute;
+}
+
+.prizes-tobe-won{
+  -webkit-text-stroke: 0.5px #a36f86;
+  font-size: 24px;
+}
+.prizes-you-won{
+  -webkit-text-stroke: 0.5px #a36f86;
+  align-self: center;
+  font-size: 26px;
+}
+
+.above-all{
+  background-color: #fcfcfc;
+  height: 400px;
+  width: 600px;
+  position: absolute;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  box-shadow: 0 8px 16px 0 rgba(46, 61, 73, 0.16);
+  font-size: 30px;
 }
