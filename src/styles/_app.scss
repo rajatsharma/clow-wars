@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Fontdiner+Swanky');
+$dark:  #161616;
 
 .app{
   font-family: 'Fontdiner Swanky', cursive;
@@ -7,10 +8,11 @@
   justify-content: space-around;
   align-items: center;
   min-height: 100vh;
-  background-color: #757780;
+  background-color: #C7D6D5;
 }
 
 .gifts{
+  min-width: 20vw;
   margin: 30px;
   display: flex;
   align-self: stretch;
@@ -32,16 +34,9 @@
 .cards{
   column-count: 4;
   column-gap: 1em;
-  // & .movie-card{
-  //   break-inside: avoid;
-  //   margin-bottom: 10px;
-  //   display: flex;
-  //   justify-content: center;
-  //   padding: 10px;
-  //   background-color: #fcfcfc;
-  //   border-radius: 10px;
-  // }
   & .flipping-card{
+    cursor: pointer;
+    animation-name: flipInY;
     margin-bottom: 10px;
     padding: 6px;
     background-color: #fcfcfc;
@@ -75,7 +70,7 @@
 
 .prize-count{
   top: -79px;
-  color: #a36f86;
+  color: #F7567C;
   left: 85px;
   font-size: 48px;
   text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
@@ -86,22 +81,9 @@
   -webkit-text-stroke: 0.5px #a36f86;
   font-size: 24px;
 }
+
 .prizes-you-won{
   -webkit-text-stroke: 0.5px #a36f86;
   align-self: center;
   font-size: 26px;
-}
-
-.above-all{
-  background-color: #fcfcfc;
-  height: 400px;
-  width: 600px;
-  position: absolute;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
-  box-shadow: 0 8px 16px 0 rgba(46, 61, 73, 0.16);
-  font-size: 30px;
 }

@@ -1,0 +1,144 @@
+.cwazy-button {
+  display: flex;
+  overflow: hidden;
+  align-self: center;
+  margin: 10px;
+  padding: 20px;
+  background-color: #feee7d;
+  cursor: pointer;
+  user-select: none;
+  transition: all 60ms ease-in-out;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none !important;
+  text-transform: none;
+  color: #f15c5c;
+  border: 0 none;
+  border-radius: 10px;
+  font-family: 'Fontdiner Swanky', cursive;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  justify-content: center;
+  align-items: center;
+  // flex: 0 0 160px;
+  box-shadow: 2px 5px 10px rgba($dark, .1);
+
+  &:hover {
+    transition: all 60ms ease;
+    opacity: 0.85;
+  }
+
+  &:active {
+    transition: all 60ms ease;
+    opacity: 0.75;
+  }
+
+  &:focus {
+    outline: 1px dotted #959595;
+    outline-offset: -4px;
+  }
+}
+
+.transition {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  position: fixed;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s ease;
+
+  & .above-all {
+    flex-direction: column;
+    background-color: #fcfcfc;
+    height: 400px;
+    z-index: 3;
+    width: 600px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 16px 0 rgba(46, 61, 73, 0.16);
+    font-size: 30px;
+    padding: 25px 10px 25px 10px;
+
+    & p {
+      text-align: center;
+    }
+  }
+}
+@keyframes slideInUp {
+  from {
+    opacity: 0.01;
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes slideInOut {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate3d(0, +100%, 0);
+    opacity: 0.01;
+  }
+}
+
+.notifier-enter {
+  animation: slideInUp 1s forwards;
+}
+
+.notifier-enter.notifier-enter-active {
+  animation: slideInUp 1s forwards;
+}
+
+.notifier-appear {}
+
+.notifier-appear.notifier-appear-active {
+  animation: slideInUp 1s forwards;
+}
+
+.notifier-leave {
+  animation: slideInOut 1s forwards;
+}
+
+.notifier-leave.notifier-leave-active {
+  animation: slideInOut 1s forwards;
+}
+
+.modal-enter {
+  animation: bounceIn 0.7s forwards;
+}
+
+.modal-enter.modal-enter-active {
+  animation: bounceIn 0.7s forwards;
+}
+
+.modal-leave {
+  animation: bounceOut 0.7s forwards;
+}
+
+.modal-leave.modal-leave-active {
+  animation: bounceOut 0.7s forwards;
+}
