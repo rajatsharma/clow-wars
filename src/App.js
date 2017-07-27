@@ -17,7 +17,8 @@ class App extends Component {
       flippedId: null,
       lostGame: false,
       lastWonPrize: null,
-      winAll: false
+      winAll: false,
+      nearlyFlippedCard: null
     }, initPrizeState)
   }
 
@@ -44,7 +45,8 @@ class App extends Component {
   resetCards (card) {
     delayer(() => this.setState({
       cards: ArrRandomiser([...Clow]),
-      flippedId: null
+      flippedId: null,
+      nearlyFlippedCard: null
     }))
   }
 
@@ -63,19 +65,19 @@ class App extends Component {
       })
       return
     }
+    if (this.state.prizeMobiles) {
+      this.setState({
+        prizeMobiles: this.state.prizeMobiles - 1,
+        userMobiles: this.state.userMobiles + 1,
+        lastWonPrize: 'Mobile'
+      })
+      return
+    }
     if (this.state.prizeBikes) {
       this.setState({
         prizeBikes: this.state.prizeBikes - 1,
         userBikes: this.state.userBikes + 1,
         lastWonPrize: 'Bike'
-      })
-      return
-    }
-    if (this.state.prizeCars) {
-      this.setState({
-        prizeCars: this.state.prizeCars - 1,
-        userCars: this.state.userCars + 1,
-        lastWonPrize: 'Cars'
       })
       return
     }
@@ -87,7 +89,7 @@ class App extends Component {
   }
 
   rotateCard (card, index) {
-    if (this.state.cards[index].flipped) return
+    if (this.state.nearlyFlippedCard === index) return
     let fake = this
     if (fake.getFlippedCards() > 1) {
       fake.resetCards(card)
@@ -106,6 +108,7 @@ class App extends Component {
 
     // card Setting here
     this.setState({
+      nearlyFlippedCard: index,
       flippedId: this.state.cards[index].id,
       cards: setSomeCardsToThis(index)(this.state.cards)
     })
@@ -128,9 +131,14 @@ class App extends Component {
         <LostModal isShown={this.state.lostGame} closeModal={() => this.loseLostModal()} />
         <WinAllModal isShown={this.state.winAll} closeModal={() => this.resetGame()} />
         <PrizeModal isShown={!!this.state.lastWonPrize} closeModal={() => this.closePrizeModal()} prize={this.state.lastWonPrize} />
-        <GiftBox title='Prizes to be won' cars={this.state.prizeCars} bikes={this.state.prizeBikes} movieTickets={this.state.prizeTickets} titleClass='prizes-tobe-won' />
+        <GiftBox title='Prizes to be won' bikes={this.state.prizeBikes}
+          mobiles={this.state.prizeMobiles} movieTickets={this.state.prizeTickets} titleClass='prizes-tobe-won'
+          emptyText={'We Ran out of Prizes'}
+        />
         <CardRepeater rotate={(card, index) => this.rotateCard(card, index)} clows={this.state.cards} />
-        <GiftBox title='You Won' cars={this.state.userCars} bikes={this.state.userBikes} movieTickets={this.state.userTickets} requiredToShow titleClass='prizes-you-won' />
+        <GiftBox title='You Won' bikes={this.state.userBikes} mobiles={this.state.userMobiles} movieTickets={this.state.userTickets} titleClass='prizes-you-won'
+          emptyText={'Start Flipping Cards, if it matches you\'ll get a prize'}
+        />
       </div>
     )
   }

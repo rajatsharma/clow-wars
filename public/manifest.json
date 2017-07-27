@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Clow Wars",
+  "name": "Clow Wars - Card Matching Game",
   "icons": [
     {
       "src": "favicon.ico",

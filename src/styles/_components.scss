@@ -53,17 +53,17 @@
 }
 
 .overlay {
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   z-index: 1;
   display: flex;
-  position: fixed;
-  align-self: center;
+  align-self: stretch;
   justify-content: center;
   align-items: center;
   transition: all 1s ease;
 
   & .above-all {
+    animation: bounceIn 0.7s;
     flex-direction: column;
     background-color: #fcfcfc;
     height: 400px;

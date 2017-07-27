@@ -1,24 +1,27 @@
-@import url('https://fonts.googleapis.com/css?family=Fontdiner+Swanky');
-$dark:  #161616;
+@import url( 'https://fonts.googleapis.com/css?family=Fontdiner+Swanky');
+$dark: #161616;
 
-.app{
+.app {
   font-family: 'Fontdiner Swanky', cursive;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   min-height: 100vh;
+  padding: 0px 30px;
   background-color: #C7D6D5;
 }
 
-.gifts{
+.gifts {
+  animation: slideInUp 0.7s;
   min-width: 20vw;
-  margin: 30px;
+  margin: 20px;
   display: flex;
   align-self: stretch;
   flex-direction: column;
-  justify-content: space-around;
-  & .gift-card{
+  justify-content: center;
+
+  & .gift-card {
     box-shadow: 0 8px 16px 0 rgba(46, 61, 73, 0.16);
     position: relative;
     display: flex;
@@ -31,10 +34,11 @@ $dark:  #161616;
   }
 }
 
-.cards{
+.cards {
   column-count: 4;
   column-gap: 1em;
-  & .flipping-card{
+
+  & .flipping-card {
     cursor: pointer;
     animation-name: flipInY;
     margin-bottom: 10px;
@@ -45,30 +49,40 @@ $dark:  #161616;
     transform-style: preserve-3d;
   }
 }
-.front{
+
+.front {
   transform: rotateY(180deg);
 }
-.hide{
+
+.hide {
   display: none;
 }
-.show{
+
+.show {
   display: block !important;
 }
-.flip{
+
+.flip {
   transform: rotateY(-180deg);
 }
 
-.prize-icon{
+.prize-icon {
   position: absolute;
   left: -36px;
 }
 
-.prize-text{
-  width: 50px;
+.mobile {
+  height: 80px;
+  left: -16px;
+  top: 7px;
+}
+
+.prize-text {
+  width: 56px;
   align-self: flex-end;
 }
 
-.prize-count{
+.prize-count {
   top: -79px;
   color: #F7567C;
   left: 85px;
@@ -77,13 +91,48 @@ $dark:  #161616;
   position: absolute;
 }
 
-.prizes-tobe-won{
-  -webkit-text-stroke: 0.5px #a36f86;
+.prizes-tobe-won {
+  -webkit-text-stroke: 0.5px #52B788;
+  align-self: center;
   font-size: 24px;
 }
 
-.prizes-you-won{
-  -webkit-text-stroke: 0.5px #a36f86;
+.prizes-you-won {
+  -webkit-text-stroke: 0.5px #52B788;
   align-self: center;
   font-size: 26px;
+}
+
+.intro-text {
+  color: #023436;
+  font-size: 20px;
+  align-self: center;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 2em;
+}
+@media only screen and (max-width: 1024px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .gifts {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .prizes-tobe-won {
+    align-self: flex-start;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .cards {
+    column-count: 2;
+    column-gap: 1em;
+  }
+
+  .gifts {
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
