@@ -2,6 +2,8 @@
 
 ### Development
 
+* `npm install -g yarn` to install yarn
+* `cd clow-wars`
 * `yarn start` to start development server
 
 
