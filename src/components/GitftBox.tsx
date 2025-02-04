@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types, react/jsx-no-bind */
 import React from "react";
-import imageDispatcher from "../utils/imagedispatcher";
+import { prizes } from "../resources";
 
 const GiftBox = ({
   title,
@@ -15,9 +14,10 @@ const GiftBox = ({
     {!!movieTickets && (
       <div className="gift-card">
         <img
-          src={imageDispatcher["Movie Ticket"]}
+          src={prizes["Movie Ticket"]}
           height="50px"
           className="prize-icon"
+          alt={"Movie Ticket"}
         />
         <p className="prize-text">Movie Tickets</p>
         <p className="prize-count">{movieTickets}</p>
@@ -26,9 +26,10 @@ const GiftBox = ({
     {!!mobiles && (
       <div className="gift-card">
         <img
-          src={imageDispatcher.Mobile}
+          src={prizes.Mobile}
           height="50px"
           className="prize-icon mobile"
+          alt="Mobile"
         />
         <p className="prize-text">Mobiles</p>
         <p className="prize-count">{mobiles}</p>
@@ -36,7 +37,12 @@ const GiftBox = ({
     )}
     {!!bikes && (
       <div className="gift-card">
-        <img src={imageDispatcher.Bike} height="50px" className="prize-icon" />
+        <img
+          src={prizes.Bike}
+          height="50px"
+          className="prize-icon"
+          alt="Bike"
+        />
         <p className="prize-text">Bike</p>
         <p className="prize-count">{bikes}</p>
       </div>

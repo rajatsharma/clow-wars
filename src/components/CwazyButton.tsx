@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types, react/jsx-no-bind */
 import React from "react";
 
 const CwazyButton = ({ text, onClick }: any) => (

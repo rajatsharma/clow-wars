@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { initPrizeState } from "./constants";
-import { randomizer } from "./utils/arrrandomiser";
-import clowCards from "./utils/cardselector";
-import { setSomeCardsToThis } from "./utils/cardshuffler";
+import { randomizer, setSomeCardsToThis } from "./utils";
+import { cards as clowCards } from "./resources";
 import { LostModal, PrizeModal, WinAllModal } from "./components/modals";
 import GiftBox from "./components/GitftBox";
 import CardRepeater from "./components/CardRepeater";

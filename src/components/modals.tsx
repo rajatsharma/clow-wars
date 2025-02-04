@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types, react/jsx-no-bind */
 import React from "react";
 import CwazyButtons from "./CwazyButton";
-import imageDispatcher from "../utils/imagedispatcher";
+import { prizes } from "../resources";
 
 export const LostModal = ({ isShown, closeModal }: any) => {
   if (!isShown) {
@@ -24,7 +24,15 @@ export const LostModal = ({ isShown, closeModal }: any) => {
   );
 };
 
-export const PrizeModal = ({ isShown, closeModal, prize }: any) => {
+export const PrizeModal = ({
+  isShown,
+  closeModal,
+  prize,
+}: {
+  isShown: boolean;
+  closeModal: () => void;
+  prize: string;
+}) => {
   if (!isShown) {
     return null;
   }
@@ -38,7 +46,7 @@ export const PrizeModal = ({ isShown, closeModal, prize }: any) => {
           </span>{" "}
           Congratulations you won
         </p>
-        <img src={(imageDispatcher as any)[prize]} height="90px" alt="prize" />
+        <img src={prizes[prize]} height="90px" alt="prize" />
         <p>{prize}</p>
         <CwazyButtons onClick={() => closeModal()} text="Continue ▸" />
       </div>
