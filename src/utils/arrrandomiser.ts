@@ -1,4 +1,4 @@
-const randomiser = (array: any[]) => {
+export function randomizer <T>(array: T[]): T[]  {
   let currentIndex = array.length;
   let temporaryValue;
   let randomIndex = 0;
@@ -16,6 +16,4 @@ const randomiser = (array: any[]) => {
   }
 
   return array;
-};
-
-export default randomiser;
+}
