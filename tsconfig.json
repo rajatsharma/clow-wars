@@ -23,6 +23,6 @@
   "include": [
     "./src",
     "vite.config.ts",
-    "typings.d.ts"
+    "node_modules/vite/client.d.ts"
   ]
 }
